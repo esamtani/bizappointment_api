@@ -42,11 +42,10 @@ namespace bizappointment_api.Implementation
 
             else if (_server == "uat")
             {
-
-                connetionString = @"Data Source=SQL6017.site4now.net;
-                                                        Initial Catalog=db_a4e33b_stpeters;Integrated Security=False;
-                                                        User Id=db_a4e33b_stpeters_admin;Password=Password#1;
-                                                        MultipleActiveResultSets=True";
+                connetionString = @"Data Source=142.11.194.164\SQLEXPRESS,1433;
+                                                Initial Catalog = selfhatch; Integrated Security = False;
+                                                User Id = kantascrypt_admin; Password = K@ntascrypt#1;
+                                                MultipleActiveResultSets = True";
 
             }
 
