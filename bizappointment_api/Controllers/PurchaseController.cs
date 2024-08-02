@@ -175,13 +175,13 @@ namespace bizappointment_api.Controllers
                             {
                                 var whatsappmessage = dr2["msgtext"].Equals(DBNull.Value) ? "" : dr2["msgtext"].ToString();
 
-                                if (!string.IsNullOrEmpty(phoneno))
-                                {
-                                    sendmsg.SendMessage(phoneno, whatsappmessage);
-                                }
-                                else
-                                {
-                                }
+                                //if (!string.IsNullOrEmpty(phoneno))
+                                //{
+                                //    sendmsg.SendMessage(phoneno, whatsappmessage);
+                                //}
+                                //else
+                                //{
+                                //}
                             }
                         }
                     }
