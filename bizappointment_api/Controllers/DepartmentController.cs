@@ -40,7 +40,7 @@ namespace bizappointment_api.Controllers
             }
             return result;
         }
-        public HttpResultViewModel FetchDepartmentNameList([FromBody] AppointmentFormViewModel _model)
+        public HttpResultViewModel FetchDepartmentNameList([FromBody] DepartmentViewModel _model)
         {
             DataSet ds;
             string _request = JsonConvert.SerializeObject(_model);
@@ -66,7 +66,7 @@ namespace bizappointment_api.Controllers
             }
             return result;
         }
-        public HttpResultViewModel EditDepartmentDetails([FromBody] AppointmentFormViewModel _model)
+        public HttpResultViewModel EditDepartmentDetails([FromBody] DepartmentViewModel _model)
         {
             DataSet ds;
             bool issuccess = false;
@@ -92,7 +92,7 @@ namespace bizappointment_api.Controllers
             }
             return result;
         }
-        public HttpResultViewModel RemoveAppointmentById([FromBody] AppointmentFormViewModel _model)
+        public HttpResultViewModel RemoveDepartmentById([FromBody] DepartmentViewModel _model)
         {
             DataSet ds;
             bool issuccess = false;
@@ -101,7 +101,7 @@ namespace bizappointment_api.Controllers
             result.message = "Department name has been deleted sucessfully.";
             DatabaseModel _dbrequest = new DatabaseModel();
             _dbrequest.Request = _request;
-            _dbrequest.Type = "RemoveDepartmentId";
+            _dbrequest.Type = "RemoveDepartmentById";
             DatabaseConnection _conn = new DatabaseConnection();
             ds = _conn.ExecuteDataSet("SP.DepartmentModule", _dbrequest);
             if (ds.Tables.Count > 0)

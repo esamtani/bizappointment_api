@@ -213,6 +213,8 @@
     <Compile Include="Models\ExceptionViewModel.cs" />
     <Compile Include="Models\MessageViewModels.cs" />
     <Compile Include="Models\PurchaseViewModel.cs" />
+    <Compile Include="Models\ServicesViewModel.cs" />
+    <Compile Include="Models\StaffViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\UtilityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
