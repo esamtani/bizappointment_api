@@ -10,7 +10,11 @@ namespace bizappointment_api.Models
         public string appointmentnumber { get; set; }
         public string firstname { get; set; }
         public string phoneno { get; set; }
+        public string servicename { get; set; }
+        public string appointmentstatus { get; set; }
+        public string staffname { get; set; }
         public long userinfoid { get; set; }
+        public long appointmentmasterid { get; set; }
         public long staffmasterid { get; set; }
         public long servicemasterid { get; set; }
         public long companyid { get; set; }

@@ -41,6 +41,33 @@ namespace bizappointment_api.Controllers
             }
             return result;
         }
+        public HttpResultViewModel LoadAppointmentDetailsById([FromBody] AppointmentFormViewModel _model)
+        {
+            DataSet ds;
+            string _request = JsonConvert.SerializeObject(_model);
+            HttpResultViewModel result = new HttpResultViewModel();
+            DatabaseModel _dbrequest = new DatabaseModel();
+            _dbrequest.Request = _request;
+            _dbrequest.Type = "LoadAppointmentDetailsById";
+            DatabaseConnection _conn = new DatabaseConnection();
+            try
+            {
+                ds = _conn.ExecuteDataSet("SP.AppointmentModule", _dbrequest);
+                if (ds.Tables.Count > 0)
+                {
+                    DataTable dt = ds.Tables[0];
+                    result.data = dt;
+                    result.status = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                SystemUtilities systemutil = new SystemUtilities();
+                systemutil.SaveError(ex);
+            }
+
+            return result;
+        }
 
 
 
