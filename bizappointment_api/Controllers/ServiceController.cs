@@ -171,6 +171,32 @@ namespace bizappointment_api.Controllers
             }
             return result;
         }
+        public HttpResultViewModel LoadAllServicesList([FromBody] ServicesViewModel _model)
+        {
+            DataSet ds;
+            string _request = JsonConvert.SerializeObject(_model);
+            HttpResultViewModel result = new HttpResultViewModel();
+            DatabaseModel _dbrequest = new DatabaseModel();
+            _dbrequest.Request = _request;
+            _dbrequest.Type = "LoadAllServicesList";
+            DatabaseConnection _conn = new DatabaseConnection();
+            try
+            {
+                ds = _conn.ExecuteDataSet("SP.ServiceModule", _dbrequest);
+                if (ds.Tables.Count > 0)
+                {
+                    DataTable dt = ds.Tables[0];
+                    result.data = dt;
+                    result.status = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                SystemUtilities systemutil = new SystemUtilities();
+                systemutil.SaveError(ex);
+            }
+            return result;
+        }
 
         public HttpResultViewModel LoadAllStaffServicesList([FromBody] ServicesViewModel _model)
         {
